@@ -268,8 +268,8 @@ CREATE INDEX in_tww_measure_symbolpos_geometry ON tww_od.measure USING gist (sym
 COMMENT ON COLUMN tww_od.measure.symbolpos_geometry IS 'For the visualisation (without geometric relation) / Für die Visualisierung (ohne räumlichen Bezug) / Pour la visualisation (sans relation géométrique)';
  ALTER TABLE tww_od.measure ADD COLUMN total_cost  decimal(10,2) ;
 COMMENT ON COLUMN tww_od.measure.total_cost IS 'Sum of own and cost of third parties. Eventually they can be listed also seperately. / Summe der Eigenleistung und Kosten Dritter. Allenfalls können diese zusätzlich auch separat ausgewiesen werden / Somme des contributions propres et des coûts de parties tiers. Ils peuvent également être justifiés séparément';
- ALTER TABLE tww_od.measure ADD COLUMN year_implementation_effectiv  smallint ;
-COMMENT ON COLUMN tww_od.measure.year_implementation_effectiv IS 'Year the measure was actually implemented / Jahr, in dem die Massnahme effektiv umgesetzt wurde / Année à laquelle la mesure a effectivement été mise en œuvre';
+ ALTER TABLE tww_od.measure ADD COLUMN year_implementation_effective  smallint ;
+COMMENT ON COLUMN tww_od.measure.year_implementation_effective IS 'Year the measure was actually implemented / Jahr, in dem die Massnahme effektiv umgesetzt wurde / Année à laquelle la mesure a effectivement été mise en œuvre';
  ALTER TABLE tww_od.measure ADD COLUMN year_implementation_planned  smallint ;
 COMMENT ON COLUMN tww_od.measure.year_implementation_planned IS 'Planned year of implementation / Jahr bis die Massnahme umgesetzt sein soll / Année à laquelle la mesure devrait être mise en œuvre';
  ALTER TABLE tww_od.measure ADD COLUMN last_modification TIMESTAMP without time zone DEFAULT now();
