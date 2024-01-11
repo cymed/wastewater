@@ -5,9 +5,9 @@ from logging import INFO, FileHandler, Formatter
 from . import config, utils #TODO
 
 
-from .teksi2mike.export import tww_export as export
-from .teksi2mike._import import tww_import as _import
-from .teksi2mike.initialize import tww_initialize as initialize
+from .tww2mike.export import tww_export as export
+from .tww2mike._import import tww_import as _import
+from .tww2mike.initialize import tww_initialize as initialize
 
 from .utils.various import make_log_path
 
@@ -15,7 +15,7 @@ from .utils.various import make_log_path
 def main(args):
 
     parser = argparse.ArgumentParser(
-        description="TEKSI2Mike entry point", formatter_class=argparse.ArgumentDefaultsHelpFormatter
+        description="TWW2Mike entry point", formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
 
     parser.add_argument(
@@ -95,10 +95,8 @@ def main(args):
         exec_(
         f'"{config.JAVA}" -jar {config.ILISHAPER} --deriveData --config {config.ILISHAPER_CONFFILE}--out {args.path} --log {log_path} --trace {args.path}'
         )
-        utils.ili2db.create_ili_schema(
-            config.EXT_SCHEMA, config.ILISHAPER_MODEL_NAME, make_log_path(log_path, "ilicreate"), recreate_schema=args.recreate_schema
-        )
-        export(args)
+        
+        export(args,log_path)
     elif args.direction =='import':
         pass
     else:

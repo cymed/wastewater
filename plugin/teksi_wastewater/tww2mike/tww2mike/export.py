@@ -1,5 +1,5 @@
 # Definitions for tww datamodel with delta >= 1.7.0
-# supposed usage: add TEKSI2AG64_96 into the plugin folder of TEKSI wastewater. 
+# supposed usage: Export VSA DSS xtf into the plugin folder of TEKSI wastewater. 
 
 from functools import lru_cache
 
@@ -15,9 +15,7 @@ from .import_ import import_to_extschema
 from .model_tww import get_tww_model
 import os
 from .. import config
-# This file is wastewater/plugin/TEKSI2AG64_96/assets/tww_initialize.py
-# create_views.py is at wastewater/datamodel/app/view/create_views.py
-from ....datamodel.app.view import create_views
+
 
 def tww_export(args=None, log_path=None)
     """
@@ -113,7 +111,7 @@ def tww_export(args=None, log_path=None)
                 )
             )
             .where(ili.haltungspunkt.abwassernetzelementref == ili.abwasserknoten.t_id)
-            .values(ili.abwasserknoten.sohlenkot)
+            .values(ili.abwasserknoten.sohlenkote)
         )
         import_session.execute(update_stmt)
         import_session.commit()

@@ -14,9 +14,7 @@ from .model_ili import get_ili_model
 from .model_tww import get_tww_model
 import os
 from .. import config
-# This file is wastewater/plugin/TEKSI2AG64_96/assets/tww_initialize.py
-# create_views.py is at wastewater/datamodel/app/view/create_views.py
-from ....datamodel.app.view import create_views
+
 
 def tww_import(args)
     """
